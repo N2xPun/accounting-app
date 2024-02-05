@@ -1,24 +1,74 @@
-import './App.css';
-import Items from "./Component/Items";
+import { useState } from "react";
+import Display from "./Component/Display";
+import Form from "./Component/Form";
+import Item from "./Component/Item";
+import data from "./Data/data";
+import { v4 as uuidv4 } from "uuid";
+import { theItems } from "./Data/data";
 
-const box = {
-  margin: "auto", 
-  marginTop: "10px", 
-  padding: "10px", 
-  width: "75%", 
-  background: "#282828", 
-  borderRadius: "15px", 
-  boxShadow: "0px 10px 10px black"
-}
+var sumpos = .0;
+var sumneg = .0;
+var sum = .0;
+
+theItems.forEach(item => {
+    if(item.amt > 0){
+        sumpos += item.amt;
+    }
+    else{
+        sumneg += item.amt;
+    }
+});
+
+sum = sumpos + sumneg;
 
 function App() {
-  return (
-    <div style={box}>
-      <h1>Accounting App</h1>
-      <p className="alignText"> Track Daily Transactions.</p>
-      <Items/>
-    </div>
-  );
+    const [aname, setName] = useState("");
+    const [aamt, setAmt] = useState(0);
+    const [tdata, setData] = useState([]);
+
+    const HandleSubmit = (event) => {
+        event.preventDefault();
+        data(uuidv4(), aname, parseFloat(aamt));
+        setData(
+            theItems.map((item) => (
+                <li key={item.id}>
+                    <Item {...item} />
+                </li>
+            ))
+        );
+
+        theItems.forEach(item => {
+            if(item.amt > 0){
+                sumpos += item.amt;
+            }
+            else{
+                sumneg += item.amt;
+            }
+        });
+
+        sum = sumpos + sumneg;
+    };
+
+    const setAName = (event) => {
+        event.preventDefault();
+        setName(event.target.value);
+    };
+
+    const setAAmt = (event) => {
+        event.preventDefault();
+        setAmt(event.target.value);
+    };
+
+    return (
+        <div>
+            <Display incS={sumpos} expS={sumneg} Sum={sum}/>
+            <Form
+                onSubmit={HandleSubmit}
+                setAName={setAName}
+                setAAmt={setAAmt}
+            />
+        </div>
+    );
 }
 
 export default App;

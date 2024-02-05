@@ -1,18 +1,21 @@
 import Item from "./Item";
-import "./CCSS/Items.css"
+import "./CCSS/Items.css";
 import { theItems } from "../Data/data";
 
-function Items(){
-    const listItems = theItems.map(item =>
-        <li key={item.id}><Item {...item}/></li>)
+function Items({
+    lI = theItems.map((item) => (
+        <li key={item.id}>
+            <Item {...item} />
+        </li>
+    )),
+}) {
+    const listItems = lI;
 
-    return(
+    return (
         <div>
-            <ul>
-                {listItems}
-            </ul>
+            <ul>{listItems}</ul>
         </div>
-    )
+    );
 }
 
 export default Items;

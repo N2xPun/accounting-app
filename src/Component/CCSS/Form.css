@@ -1,0 +1,35 @@
+input.textbox{
+    color: white;
+    font-family: serif;
+
+    border: 2px white solid;
+    border-radius: 5px;
+
+    background-color: #10111111;
+
+    text-rendering: optimizeLegibility;
+
+    width: 70%;
+}
+
+input.ins{
+    border: 0;
+    border-radius: 5px;
+
+    background-color: #a9d9fc;
+
+    font-family: serif;
+
+    box-shadow: 0px 2px 5px black;
+}
+
+input.ins:hover{
+    border: 0;
+    border-radius: 5px;
+
+    background-color: #82a6bf;
+
+    font-family: serif;
+
+    box-shadow: 0px 2px 5px black;
+}

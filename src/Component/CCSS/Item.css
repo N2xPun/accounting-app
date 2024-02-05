@@ -9,6 +9,8 @@ table{
     color: white;
 
     font-family: serif;
+
+    box-shadow: 0px 5px 5px black;
 }
 
 tr, td{

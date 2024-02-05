@@ -6,10 +6,10 @@ h1{
 
   text-align: center;
 }
-p.alignText{
-  font-family: serif;
-  
+p{
   color: white;
 
-  text-align: center;
+  font-family: serif;
+
+  margin: auto;
 }
