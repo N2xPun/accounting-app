@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./CCSS/Item.css";
 import PropTypes from "prop-types";
 
@@ -10,7 +9,7 @@ Item.propTypes = {
 
 function Item({ id, name, amt }) {
     let colour = "green";
-    if(amt==0){
+    if(amt===0){
         colour = "grey";
     }
     if(amt<0){

@@ -6,6 +6,16 @@ function Form({onSubmit, setAName, setAAmt}) {
     const [vname, setVName] = useState("");
     const [vamt, setVAmt] = useState(0);
 
+    function SetBothNames(e){
+        setAName(e);
+        setVName(e.target.value);
+    }
+
+    function SetBothAmount(e){
+        setAAmt(e);
+        setVAmt(e.target.value);
+    }
+
     return (
         <div className="box">
             <h2 className="alignText">Insert Transaction</h2>
@@ -18,7 +28,7 @@ function Form({onSubmit, setAName, setAAmt}) {
                     type="text"
                     className="textbox"
                     value={vname}
-                    onChange={(e) => (setAName(e),setVName(e.target.value))}
+                    onChange={(e) => (SetBothNames(e))}
                 ></input>{" "}
                 <br style={{ marginBottom: "10px" }} />
                 <label>Transaction Amount</label> <br />
@@ -26,7 +36,7 @@ function Form({onSubmit, setAName, setAAmt}) {
                     type="number"
                     className="textbox"
                     value={vamt}
-                    onChange={(e) => (setAAmt(e),setVAmt(e.target.value))}
+                    onChange={(e) => (SetBothAmount(e))}
                 ></input>{" "}
                 <br style={{ marginBottom: "10px" }} />
                 <input

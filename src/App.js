@@ -36,6 +36,10 @@ function App() {
                 </li>
             ))
         );
+        console.log(tdata);
+
+        sumpos = 0;
+        sumneg = 0;
 
         theItems.forEach(item => {
             if(item.amt > 0){
