@@ -3,7 +3,6 @@ import Display from "./Component/Display";
 import Form from "./Component/Form";
 import Item from "./Component/Item";
 import data from "./Data/data";
-import { v4 as uuidv4 } from "uuid";
 import { theItems } from "./Data/data";
 
 var sumpos = .0;
@@ -28,7 +27,7 @@ function App() {
 
     const HandleSubmit = (event) => {
         event.preventDefault();
-        data(uuidv4(), aname, parseFloat(aamt));
+        data(aname, parseFloat(aamt));
         setData(
             theItems.map((item) => (
                 <li key={item.id}>
