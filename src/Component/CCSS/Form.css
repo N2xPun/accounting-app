@@ -9,7 +9,7 @@ input.textbox{
 
     text-rendering: optimizeLegibility;
 
-    width: 70%;
+    width: 90%;
 }
 
 input.ins{
@@ -32,4 +32,18 @@ input.ins:hover{
     font-family: serif;
 
     box-shadow: 0px 2px 5px black;
+}
+
+textarea{
+    resize: vertical;
+
+    width: 90%;
+
+    color: white;
+    font-family: serif;
+
+    border: 2px white solid;
+    border-radius: 5px;
+
+    background-color: #10111111;
 }

@@ -4,7 +4,7 @@ import { useState } from "react";
 
 function Form({onSubmit, setAName, setAAmt}) {
     const [vname, setVName] = useState("");
-    const [vamt, setVAmt] = useState(0);
+    const [vamt, setVAmt] = useState("");
 
     function SetBothNames(e){
         setAName(e);
@@ -18,12 +18,12 @@ function Form({onSubmit, setAName, setAAmt}) {
 
     return (
         <div className="box">
-            <h2 className="alignText">Insert Transaction</h2>
+            <h2 className="alignText">Make Blog</h2>
             <form
                 onSubmit={onSubmit}
                 style={{ fontFamily: "serif", color: "white" }}
             >
-                <label>Transaction Name</label> <br />
+                <label>Title</label> <br />
                 <input
                     type="text"
                     className="textbox"
@@ -31,17 +31,16 @@ function Form({onSubmit, setAName, setAAmt}) {
                     onChange={(e) => (SetBothNames(e))}
                 ></input>{" "}
                 <br style={{ marginBottom: "10px" }} />
-                <label>Transaction Amount</label> <br />
-                <input
-                    type="number"
-                    className="textbox"
+                <label>Body</label> <br />
+                <textarea
+                    type="text"
                     value={vamt}
                     onChange={(e) => (SetBothAmount(e))}
-                ></input>{" "}
+                ></textarea>{" "}
                 <br style={{ marginBottom: "10px" }} />
                 <input
                     type="submit"
-                    value={"Insert Transaction"}
+                    value={"Make Blog"}
                     className="ins"
                 ></input>
             </form>

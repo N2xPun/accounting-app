@@ -5,29 +5,14 @@ import Item from "./Component/Item";
 import data from "./Data/data";
 import { theItems } from "./Data/data";
 
-var sumpos = .0;
-var sumneg = .0;
-var sum = .0;
-
-theItems.forEach(item => {
-    if(item.amt > 0){
-        sumpos += item.amt;
-    }
-    else{
-        sumneg += item.amt;
-    }
-});
-
-sum = sumpos + sumneg;
-
 function App() {
     const [aname, setName] = useState("");
-    const [aamt, setAmt] = useState(0);
+    const [aamt, setAmt] = useState("");
     const [tdata, setData] = useState([]);
 
     const HandleSubmit = (event) => {
         event.preventDefault();
-        data(aname, parseFloat(aamt));
+        data(aname, aamt, Date.now);
         setData(
             theItems.map((item) => (
                 <li key={item.id}>
@@ -36,20 +21,6 @@ function App() {
             ))
         );
         console.log(tdata);
-
-        sumpos = 0;
-        sumneg = 0;
-
-        theItems.forEach(item => {
-            if(item.amt > 0){
-                sumpos += item.amt;
-            }
-            else{
-                sumneg += item.amt;
-            }
-        });
-
-        sum = sumpos + sumneg;
     };
 
     const setAName = (event) => {
@@ -64,7 +35,7 @@ function App() {
 
     return (
         <div>
-            <Display incS={sumpos} expS={sumneg} Sum={sum}/>
+            <Display />
             <Form
                 onSubmit={HandleSubmit}
                 setAName={setAName}
